@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Heavenly Bed Collection — Rest as It Should Be</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #F5F0E8;
+    --sand: #E8DDC9;
+    --green: #3A4A3A;
+    --clay: #B85C3C;
+    --ink: #1F1A14;
+    --muted: #6B5F50;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+    height: 72px;
+    transition: background 0.35s ease, box-shadow 0.35s ease;
+  }
+  nav.scrolled {
+    background: var(--cream);
+    box-shadow: 0 1px 0 rgba(31,26,20,0.08);
+  }
+  .nav-wordmark {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--green);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+  .nav-links a {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--clay); }
+  .nav-cta {
+    border: 1px solid var(--green);
+    padding: 9px 22px;
+    color: var(--green) !important;
+    border-radius: 2px;
+  }
+  .nav-cta:hover { background: var(--green); color: var(--cream) !important; }
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--ink);
+    font-size: 20px;
+  }
+
+  /* HERO */
+  #hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 640px;
+    overflow: hidden;
+  }
+  .hero-img {
+    position: absolute;
+    inset: 0;
+  }
+  .hero-img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(31,26,20,0.55) 0%, rgba(31,26,20,0.1) 60%, transparent 100%);
+  }
+  .hero-content {
+    position: absolute;
+    bottom: 100px;
+    left: 72px;
+    max-width: 640px;
+    color: var(--cream);
+    z-index: 2;
+  }
+  .hero-eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.75);
+    margin-bottom: 20px;
+  }
+  .hero-headline {
+    font-family: var(--serif);
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    margin-bottom: 24px;
+  }
+  .hero-sub {
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.6;
+    color: rgba(245,240,232,0.85);
+    max-width: 420px;
+    margin-bottom: 40px;
+  }
+  .btn-ghost {
+    display: inline-block;
+    border: 1px solid rgba(245,240,232,0.7);
+    color: var(--cream);
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: background 0.25s, border-color 0.25s;
+  }
+  .btn-ghost:hover {
+    background: rgba(245,240,232,0.15);
+    border-color: var(--cream);
+  }
+  .btn-green {
+    display: inline-block;
+    border: 1px solid var(--green);
+    color: var(--green);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: background 0.25s, color 0.25s;
+    cursor: pointer;
+  }
+  .btn-green:hover { background: var(--green); color: var(--cream); }
+  .btn-clay {
+    display: inline-block;
+    border: 1px solid var(--clay);
+    color: var(--clay);
+    background: transparent;
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 2px;
+    transition: background 0.25s, color 0.25s;
+  }
+  .btn-clay:hover { background: var(--clay); color: var(--cream); }
+
+  /* SECTIONS */
+  section { padding: 120px 0; }
+
+  .eyebrow {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 24px;
+    display: block;
+  }
+
+  h2.section-title {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5vw, 62px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+
+  h3.model-name {
+    font-family: var(--serif);
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .container {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .container-wide {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  /* BRAND INTRO */
+  #brand {
+    background: var(--cream);
+  }
+  .brand-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .brand-text p {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
+    margin-bottom: 20px;
+  }
+  .brand-text p:last-child { margin-bottom: 0; }
+  .brand-image-wrap {
+    position: relative;
+    height: 580px;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+
+  /* MODEL TEASERS */
+  #collection {
+    background: var(--sand);
+    padding: 100px 0;
+  }
+  .collection-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .model-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+  .model-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2px;
+  }
+  .model-card-img {
+    height: 440px;
+    overflow: hidden;
+  }
+  .model-card-img img {
+    transition: transform 0.6s ease;
+  }
+  .model-card:hover .model-card-img img {
+    transform: scale(1.04);
+  }
+  .model-card-body {
+    padding: 28px 0 8px;
+  }
+  .model-tag {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 10px;
+    display: block;
+  }
+  .model-card-body h3 {
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .model-card-body p {
+    font-size: 15px;
+    color: var(--muted);
+    margin-bottom: 20px;
+    line-height: 1.55;
+  }
+  .link-arrow {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--green);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: gap 0.2s;
+  }
+  .link-arrow:hover { gap: 12px; }
+
+  /* WHY HEAVENLY */
+  #why {
+    background: var(--cream);
+    padding: 0;
+  }
+  .why-image-break {
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    position: relative;
+  }
+  .why-image-break::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgba(31,26,20,0.28);
+  }
+  .why-image-break-text {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--cream);
+    padding: 48px;
+  }
+  .why-image-break-text h2 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 68px);
+    font-weight: 400;
+    line-height: 1.1;
+    max-width: 720px;
+  }
+  .why-pillars {
+    padding: 100px 0;
+    background: var(--cream);
+  }
+  .pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: rgba(107,95,80,0.15);
+    border: 1px solid rgba(107,95,80,0.15);
+  }
+  .pillar {
+    background: var(--cream);
+    padding: 56px 52px;
+  }
+  .pillar-icon {
+    font-size: 26px;
+    margin-bottom: 20px;
+    display: block;
+  }
+  .pillar h3 {
+    font-family: var(--serif);
+    font-size: 26px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .pillar p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+  .pillar small {
+    display: block;
+    margin-top: 10px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--clay);
+    font-weight: 500;
+  }
+
+  /* ANATOMY */
+  #anatomy {
+    background: var(--sand);
+  }
+  .anatomy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .anatomy-svg-wrap {
+    position: sticky;
+    top: 120px;
+  }
+  .anatomy-text h2 {
+    margin-bottom: 40px;
+  }
+  .layer-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+  .layer-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  .layer-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 2px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .layer-item-text h4 {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .layer-item-text p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* MODEL SECTIONS */
+  .model-section {
+    padding: 0 0 120px;
+    background: var(--cream);
+  }
+  .model-section:nth-child(even) {
+    background: var(--sand);
+  }
+  .model-hero-strip {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+    min-height: 400px;
+    overflow: hidden;
+    margin-bottom: 80px;
+  }
+  .model-hero-strip::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to right, rgba(31,26,20,0.5) 0%, transparent 60%);
+  }
+  .model-hero-text {
+    position: absolute;
+    bottom: 60px;
+    left: 72px;
+    z-index: 2;
+    color: var(--cream);
+  }
+  .model-hero-text .eyebrow { color: rgba(245,240,232,0.7); }
+  .model-hero-text h2 {
+    font-family: var(--serif);
+    font-size: clamp(48px, 7vw, 80px);
+    font-weight: 400;
+    line-height: 1.0;
+    letter-spacing: -0.01em;
+  }
+  .model-body-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+  .model-body-grid.reverse { direction: rtl; }
+  .model-body-grid.reverse > * { direction: ltr; }
+  .model-image-col {
+    height: 560px;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  .model-intro {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 40px;
+  }
+  .specs-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: rgba(107,95,80,0.2);
+    border: 1px solid rgba(107,95,80,0.2);
+    margin-bottom: 40px;
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .spec-item {
+    background: var(--cream);
+    padding: 20px 18px;
+  }
+  .model-section:nth-child(even) .spec-item { background: var(--sand); }
+  .spec-label {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 6px;
+    display: block;
+  }
+  .spec-value {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .construction-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .construction-list li {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .construction-list li::before {
+    content: '—';
+    color: var(--clay);
+    flex-shrink: 0;
+    font-weight: 500;
+    margin-top: 1px;
+  }
+  .model-feel {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  /* COMPARE */
+  #compare {
+    background: var(--cream);
+    padding: 120px 0;
+  }
+  .compare-header { margin-bottom: 56px; }
+  .compare-table-wrap { overflow-x: auto; }
+  table.compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+  }
+  .compare-table th {
+    background: var(--green);
+    color: var(--cream);
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    padding: 24px 28px;
+    text-align: left;
+    border-right: 1px solid rgba(245,240,232,0.1);
+  }
+  .compare-table th:first-child {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.6);
+  }
+  .compare-table td {
+    padding: 20px 28px;
+    font-size: 15px;
+    color: var(--ink);
+    border-bottom: 1px solid rgba(107,95,80,0.12);
+    border-right: 1px solid rgba(107,95,80,0.08);
+    vertical-align: top;
+    line-height: 1.6;
+  }
+  .compare-table td:first-child {
+    font-family: var(--sans);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+  .compare-table tr:nth-child(even) td { background: rgba(232,221,201,0.3); }
+  .compare-table tr.highlight td { background: rgba(184,92,60,0.07); }
+  .compare-table tr.highlight td:first-child { color: var(--clay); }
+
+  /* BUYING GUIDE */
+  #guide {
+    background: var(--sand);
+  }
+  .guide-header { margin-bottom: 72px; }
+  .guide-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+  }
+  .guide-step {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 48px;
+    align-items: start;
+  }
+  .guide-numeral {
+    font-family: var(--serif);
+    font-size: 100px;
+    font-weight: 400;
+    color: rgba(107,95,80,0.18);
+    line-height: 0.85;
+    letter-spacing: -0.03em;
+  }
+  .guide-step-text h3 {
+    font-family: var(--serif);
+    font-size: 28px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .guide-step-text p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    margin-bottom: 12px;
+  }
+  .guide-step-text p:last-child { margin-bottom: 0; }
+
+  /* RITUALS */
+  #rituals {
+    background: var(--cream);
+  }
+  .rituals-header { margin-bottom: 64px; }
+  .rituals-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .ritual-card {
+    padding: 36px 28px;
+    background: var(--sand);
+    border-radius: 2px;
+  }
+  .ritual-icon {
+    font-size: 24px;
+    margin-bottom: 18px;
+    display: block;
+  }
+  .ritual-card h4 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+  .ritual-card p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: var(--muted);
+  }
+
+  /* QUIZ */
+  #quiz {
+    background: var(--sand);
+    padding: 120px 0;
+  }
+  .quiz-header { text-align: center; margin-bottom: 64px; }
+  .quiz-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+  .quiz-progress {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 48px;
+  }
+  .quiz-progress-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .quiz-dots {
+    display: flex;
+    gap: 8px;
+  }
+  .quiz-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(107,95,80,0.25);
+    transition: background 0.3s;
+  }
+  .quiz-dot.active { background: var(--green); }
+  .quiz-dot.done { background: var(--clay); }
+  .quiz-question {
+    font-family: var(--serif);
+    font-size: clamp(26px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .quiz-answers {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .quiz-answer-btn {
+    background: var(--cream);
+    border: 1px solid rgba(107,95,80,0.25);
+    border-radius: 2px;
+    padding: 18px 28px;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: left;
+    transition: border-color 0.2s, background 0.2s;
+    line-height: 1.4;
+  }
+  .quiz-answer-btn:hover {
+    border-color: var(--green);
+    background: rgba(58,74,58,0.05);
+  }
+  .quiz-pane {
+    transition: opacity 0.3s ease;
+  }
+  .quiz-pane.fade-out { opacity: 0; }
+  .quiz-result {
+    text-align: center;
+  }
+  .quiz-result-label {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .quiz-result-model {
+    font-family: var(--serif);
+    font-size: clamp(42px, 6vw, 68px);
+    font-weight: 400;
+    color: var(--green);
+    line-height: 1.05;
+    margin-bottom: 24px;
+  }
+  .quiz-result-img {
+    width: 100%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 2px;
+    margin: 32px 0;
+  }
+  .quiz-result-why {
+    font-size: 16px;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 540px;
+    margin: 0 auto 40px;
+  }
+  .quiz-result-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 24px;
+  }
+  .quiz-retake {
+    font-size: 13px;
+    color: var(--muted);
+    text-decoration: underline;
+    cursor: pointer;
+    background: none;
+    border: none;
+    font-family: var(--sans);
+  }
+  .quiz-retake:hover { color: var(--ink); }
+
+  /* FOOTER */
+  footer {
+    background: var(--green);
+    color: rgba(245,240,232,0.75);
+    padding: 80px 0 48px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 64px;
+    margin-bottom: 72px;
+  }
+  .footer-brand .nav-wordmark { color: var(--cream); margin-bottom: 20px; display: block; }
+  .footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+    color: rgba(245,240,232,0.6);
+    max-width: 280px;
+  }
+  .footer-col h5 {
+    font-family: var(--sans);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.5);
+    margin-bottom: 20px;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+  .footer-col ul a {
+    font-size: 14px;
+    color: rgba(245,240,232,0.7);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .footer-col ul a:hover { color: var(--cream); }
+  .footer-bottom {
+    border-top: 1px solid rgba(245,240,232,0.1);
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-bottom p {
+    font-size: 12px;
+    color: rgba(245,240,232,0.4);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 1024px) {
+    .brand-grid { grid-template-columns: 1fr; gap: 48px; }
+    .brand-image-wrap { height: 420px; }
+    .anatomy-grid { grid-template-columns: 1fr; }
+    .anatomy-svg-wrap { position: static; }
+    .model-body-grid { grid-template-columns: 1fr; gap: 40px; }
+    .model-body-grid.reverse { direction: ltr; }
+    .model-image-col { height: 380px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 48px; }
+    .rituals-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 72px; left: 0; right: 0; background: var(--cream); padding: 24px; gap: 20px; box-shadow: 0 8px 32px rgba(31,26,20,0.1); }
+    .nav-links.open { display: flex; }
+    .nav-toggle { display: block; }
+    .container, .container-wide { padding: 0 24px; }
+    section { padding: 72px 0; }
+    .hero-content { left: 24px; bottom: 64px; }
+    .model-hero-text { left: 24px; bottom: 40px; }
+    .model-cards { grid-template-columns: 1fr; }
+    .model-card-img { height: 320px; }
+    .pillars-grid { grid-template-columns: 1fr; }
+    .guide-step { grid-template-columns: 80px 1fr; gap: 24px; }
+    .guide-numeral { font-size: 72px; }
+    .rituals-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; }
+    .specs-strip { grid-template-columns: repeat(2, 1fr); }
+    .compare-table th, .compare-table td { padding: 14px 16px; font-size: 13px; }
+    .quiz-inner { padding: 0 24px; }
+    .quiz-result-actions { flex-direction: column; align-items: center; }
+    .hero-headline { font-size: 42px; }
+  }
+
+  /* UTILITIES */
+  .text-center { text-align: center; }
+  .mt-8 { margin-top: 8px; }
+  .mt-16 { margin-top: 16px; }
+  .mt-24 { margin-top: 24px; }
+  .mt-32 { margin-top: 32px; }
+  .mt-48 { margin-top: 48px; }
+  .mb-8 { margin-bottom: 8px; }
+  .mb-16 { margin-bottom: 16px; }
+  .mb-24 { margin-bottom: 24px; }
+  .mb-32 { margin-bottom: 32px; }
+  .divider { height: 1px; background: rgba(107,95,80,0.15); margin: 40px 0; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="main-nav">
+  <a href="#hero" class="nav-wordmark">Heavenly</a>
+  <button class="nav-toggle" aria-label="Menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">&#9776;</button>
+  <ul class="nav-links">
+    <li><a href="#collection">The Collection</a></li>
+    <li><a href="#essential">The Models</a></li>
+    <li><a href="#compare">Compare</a></li>
+    <li><a href="#guide">Buying Guide</a></li>
+    <li><a href="#rituals">Sleep Rituals</a></li>
+    <li><a href="#quiz" class="nav-cta">Find Your Bed</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=2400&q=80&auto=format&fit=crop" alt="Heavenly Bed — morning light bedroom">
+  </div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">The Heavenly Bed Collection</p>
+    <h1 class="hero-headline">Where the<br>night becomes<br>its own ritual.</h1>
+    <p class="hero-sub">Precision-crafted mattresses for those who believe that the quality of a day begins the night before.</p>
+    <a href="#collection" class="btn-ghost">Explore the Collection</a>
+  </div>
+</section>
+
+<!-- BRAND INTRO -->
+<section id="brand">
+  <div class="container">
+    <div class="brand-grid">
+      <div class="brand-text">
+        <span class="eyebrow">The Heavenly Bed Collection</span>
+        <h2 class="section-title">Rest is not the end of the day.<br>It is the foundation of the next.</h2>
+        <p>We began with a simple question: why does something you spend a third of your life on so rarely receive the same care as the objects you merely look at? The Heavenly Bed Collection is our answer — a range of mattresses built from materials that earn their place, in constructions that reward the body for having carried you through the day.</p>
+        <p>Each model is engineered around the understanding that sleep is not passive. Your body processes, repairs, and restores. What lies beneath you either assists that work or quietly impedes it. We have made our choice.</p>
+        <p>Crafted to a standard that doesn't ask to be noticed, only felt — in the quality of your mornings, the ease with which you move, and the quiet pleasure of returning to bed each night.</p>
+      </div>
+      <div class="brand-image-wrap">
+        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=1200&q=80&auto=format&fit=crop" alt="Close-up linen texture">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL TEASERS -->
+<section id="collection">
+  <div class="container-wide">
+    <div class="collection-header">
+      <span class="eyebrow">Three models. One philosophy.</span>
+      <h2 class="section-title">The Collection</h2>
+    </div>
+    <div class="model-cards">
+      <div class="model-card">
+        <div class="model-card-img">
+          <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=1200&q=80&auto=format&fit=crop" alt="Essential model">
+        </div>
+        <div class="model-card-body">
+          <span class="model-tag">Model 01</span>
+          <h3>Essential</h3>
+          <p>The considered foundation — medium-firm support and enduring construction for those who sleep with uncomplicated purpose.</p>
+          <a href="#essential" class="link-arrow">Discover &rarr;</a>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-card-img">
+          <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&auto=format&fit=crop" alt="Signature model">
+        </div>
+        <div class="model-card-body">
+          <span class="model-tag">Model 02</span>
+          <h3>Signature</h3>
+          <p>Our best-loved — a balanced medium feel with three-zone lumbar support and cooling copper-infused cover technology.</p>
+          <a href="#signature" class="link-arrow">Discover &rarr;</a>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="model-card-img">
+          <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80&auto=format&fit=crop" alt="Reserve model">
+        </div>
+        <div class="model-card-body">
+          <span class="model-tag">Model 03</span>
+          <h3>Reserve</h3>
+          <p>The pinnacle of the collection — hand-tufted, five-zone, cashmere-quilted. For those who want nothing withheld.</p>
+          <a href="#reserve" class="link-arrow">Discover &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY HEAVENLY -->
+<section id="why" style="padding:0;">
+  <div class="why-image-break">
+    <img src="https://images.unsplash.com/photo-1566665797739-1674de7a421a?w=2400&q=80&auto=format&fit=crop" alt="Warm bedroom interior">
+    <div class="why-image-break-text">
+      <h2>Materials chosen for what they do, not what they sound like.</h2>
+    </div>
+  </div>
+  <div class="why-pillars">
+    <div class="container">
+      <div class="text-center mb-32">
+        <span class="eyebrow">Why Heavenly</span>
+        <h2 class="section-title">Four pillars. No compromises.</h2>
+      </div>
+      <div class="pillars-grid">
+        <div class="pillar">
+          <span class="pillar-icon">◈</span>
+          <h3>Considered Materials</h3>
+          <p>Tencel-blend stretch knit covers that breathe with you. Talalay latex derived from natural rubber trees, open-celled and resilient. Cashmere quilt layers in the Reserve for a weight and warmth that foam cannot approximate.</p>
+          <small>PureWeave™ Cover Technology</small>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">◎</span>
+          <h3>Engineered Support</h3>
+          <p>Up to 1,180 individually encased coils — each one moving independently of its neighbour so that your movement doesn't become theirs. Zoned lumbar systems that apply more resistance where your heaviest mass sits, less where you need to give.</p>
+          <small>Heavenly Coil System™ &amp; ContourCore™</small>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">❄</span>
+          <h3>Cooler, Cleaner Rest</h3>
+          <p>Copper-infused fibres in our PureWeave™ Cooling Cover draw heat from the surface. Gel memory foam comfort layers dissipate warmth through the night. The coil system's open structure promotes continuous airflow in a way closed-cell foams cannot.</p>
+          <small>PureWeave™ Cooling Cover Technology</small>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">◻</span>
+          <h3>Made to Last</h3>
+          <p>Foam-encased portrait edge support means the sleeping surface extends to the very boundary of the mattress — no soft perimeter, no loss of usable area. High-density base foams resist compression fatigue. The Reserve carries a fifteen-year warranty because we built it to deserve one.</p>
+          <small>Reinforced Edge Architecture</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANATOMY -->
+<section id="anatomy">
+  <div class="container">
+    <div class="anatomy-grid">
+      <div class="anatomy-svg-wrap">
+        <span class="eyebrow">Construction</span>
+        <h2 class="section-title">Anatomy of<br>a Heavenly Bed</h2>
+        <svg viewBox="0 0 420 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:420px;display:block;">
+          <!-- Shadow -->
+          <ellipse cx="210" cy="476" rx="170" ry="6" fill="rgba(31,26,20,0.08)"/>
+          <!-- Layer 6: Base -->
+          <rect x="30" y="400" width="360" height="52" rx="2" fill="#3A4A3A"/>
+          <text x="404" y="432" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" fill="#6B5F50">Reinforced base</text>
+          <!-- Layer 5: Edge Support Lines -->
+          <rect x="30" y="340" width="360" height="62" rx="0" fill="#C9B99A"/>
+          <rect x="30" y="340" width="28" height="62" fill="#A89070"/>
+          <rect x="362" y="340" width="28" height="62" fill="#A89070"/>
+          <text x="404" y="376" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" fill="#6B5F50">Foam-encased edge</text>
+          <!-- Layer 4: Coil System -->
+          <rect x="30" y="228" width="360" height="114" rx="0" fill="#E8DDC9"/>
+          <!-- Coil illustrations -->
+          <g stroke="#A89070" stroke-width="1.2" fill="none">
+            <path d="M 68 252 Q 80 242 92 252 Q 104 262 116 252 Q 128 242 140 252 Q 152 262 164 252 Q 176 242 188 252 Q 200 262 212 252 Q 224 242 236 252 Q 248 262 260 252 Q 272 242 284 252 Q 296 262 308 252 Q 320 242 332 252 Q 344 262 356 252"/>
+            <path d="M 68 270 Q 80 260 92 270 Q 104 280 116 270 Q 128 260 140 270 Q 152 280 164 270 Q 176 260 188 270 Q 200 280 212 270 Q 224 260 236 270 Q 248 280 260 270 Q 272 260 284 270 Q 296 280 308 270 Q 320 260 332 270 Q 344 280 356 270"/>
+            <path d="M 68 290 Q 80 280 92 290 Q 104 300 116 290 Q 128 280 140 290 Q 152 300 164 290 Q 176 280 188 290 Q 200 300 212 290 Q 224 280 236 290 Q 248 300 260 290 Q 272 280 284 290 Q 296 300 308 290 Q 320 280 332 290 Q 344 300 356 290"/>
+            <path d="M 68 310 Q 80 300 92 310 Q 104 320 116 310 Q 128 300 140 310 Q 152 320 164 310 Q 176 300 188 310 Q 200 320 212 310 Q 224 300 236 310 Q 248 320 260 310 Q 272 300 284 310 Q 296 320 308 310 Q 320 300 332 310 Q 344 320 356 310"/>
+          </g>
+          <text x="404" y="296" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" fill="#6B5F50">Heavenly Coil System™</text>
+          <!-- Layer 3: Talalay Latex -->
+          <rect x="30" y="172" width="360" height="58" rx="0" fill="#D4C4A0"/>
+          <text x="404" y="206" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" fill="#6B5F50">Talalay latex contour</text>
+          <!-- Layer 2: Gel Foam -->
+          <rect x="30" y="116" width="360" height="58" rx="0" fill="#B8C4B8"/>
+          <text x="404" y="150" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" fill="#6B5F50">Gel memory foam</text>
+          <!-- Layer 1: Cover -->
+          <rect x="30" y="72" width="360" height="46" rx="2 2 0 0" fill="#F5F0E8"/>
+          <rect x="30" y="72" width="360" height="8" rx="2 2 0 0" fill="#E8DDC9"/>
+          <text x="404" y="99" font-family="'Cormorant Garamond',Georgia,serif" font-size="13" fill="#6B5F50">PureWeave™ cover</text>
+          <!-- Connector lines -->
+          <line x1="390" y1="99" x2="400" y2="99" stroke="#C9B99A" stroke-width="1"/>
+          <line x1="390" y1="150" x2="400" y2="150" stroke="#C9B99A" stroke-width="1"/>
+          <line x1="390" y1="206" x2="400" y2="206" stroke="#C9B99A" stroke-width="1"/>
+          <line x1="390" y1="296" x2="400" y2="296" stroke="#C9B99A" stroke-width="1"/>
+          <line x1="390" y1="376" x2="400" y2="376" stroke="#C9B99A" stroke-width="1"/>
+          <line x1="390" y1="432" x2="400" y2="432" stroke="#C9B99A" stroke-width="1"/>
+        </svg>
+      </div>
+      <div class="anatomy-text">
+        <div style="height:80px;"></div>
+        <ul class="layer-list">
+          <li class="layer-item">
+            <div class="layer-swatch" style="background:#F5F0E8;border:1px solid #E8DDC9;"></div>
+            <div class="layer-item-text">
+              <h4>PureWeave™ Stretch-Knit Cover with Tencel</h4>
+              <p>A four-way stretch knit cover woven from Tencel lyocell fibres — naturally moisture-wicking, breathable, and soft to the touch. In the Signature and Reserve, copper-infused yarns assist with heat dissipation and surface hygiene.</p>
+            </div>
+          </li>
+          <li class="layer-item">
+            <div class="layer-swatch" style="background:#B8C4B8;"></div>
+            <div class="layer-item-text">
+              <h4>Gel-Infused Memory Foam Comfort Layer</h4>
+              <p>Open-cell gel memory foam that conforms to the body's topography and distributes pressure across a broad surface area. The gel infusion draws warmth through the foam rather than allowing it to accumulate at the surface.</p>
+            </div>
+          </li>
+          <li class="layer-item">
+            <div class="layer-swatch" style="background:#D4C4A0;"></div>
+            <div class="layer-item-text">
+              <h4>Talalay Latex Contour Layer</h4>
+              <p>Talalay-processed natural latex offers a responsive, springy feel that neither traps you nor ignores you. Its open-cell structure promotes airflow, and its natural origin means it resists dust mites and allergens without chemical treatment.</p>
+            </div>
+          </li>
+          <li class="layer-item">
+            <div class="layer-swatch" style="background:#E8DDC9;border:1px solid #C9B99A;"></div>
+            <div class="layer-item-text">
+              <h4>Heavenly Coil System™ — Individually Encased, Zoned</h4>
+              <p>Each coil sits within its own fabric pocket, moving only in response to the weight directly above it. Depending on the model, the system is zoned across three or five regions, with firmer coils supporting the lumbar zone and softer ones beneath the shoulders and legs.</p>
+            </div>
+          </li>
+          <li class="layer-item">
+            <div class="layer-swatch" style="background:#A89070;"></div>
+            <div class="layer-item-text">
+              <h4>High-Density Foam-Encased Edge Support</h4>
+              <p>A continuous perimeter of high-density foam holds the edge of the mattress firm under load, extending the usable sleeping surface to the very border and ensuring the mattress does not yield when you sit on it each morning.</p>
+            </div>
+          </li>
+          <li class="layer-item">
+            <div class="layer-swatch" style="background:#3A4A3A;"></div>
+            <div class="layer-item-text">
+              <h4>Reinforced Base Support Layer</h4>
+              <p>A dense, stable foam foundation anchors the entire construction, preventing migration between layers and providing the structural rigidity that allows everything above it to function as designed over the full term of the warranty.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESSENTIAL -->
+<section id="essential" class="model-section">
+  <div class="model-hero-strip">
+    <img src="https://images.unsplash.com/photo-1505693314120-0d443867891c?w=2400&q=80&auto=format&fit=crop" alt="Essential model">
+    <div class="model-hero-text">
+      <span class="eyebrow">Model 01</span>
+      <h2>Essential</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="model-body-grid">
+      <div class="model-image-col">
+        <img src="https://images.unsplash.com/photo-1591088398332-8a7791972843?w=1200&q=80&auto=format&fit=crop" alt="Essential bedding detail">
+      </div>
+      <div class="model-text-col">
+        <span class="eyebrow">The considered foundation</span>
+        <h3 class="model-name">The Essential</h3>
+        <p class="model-intro">Not every sleeper needs every layer. The Essential was built for those who have always found medium-firm support to be the uncomplicated right answer — the kind of sleeper who knows what works and sees no reason to complicate it. It is a mattress that gets out of the way and lets you sleep. At 28cm, it sits lower to the floor than its siblings, with a profile that pairs naturally with lower-platform bed frames. Its construction is the honest architecture of the collection — all the structural rigour, none of the decorative excess.</p>
+        <div class="specs-strip">
+          <div class="spec-item"><span class="spec-label">Height</span><span class="spec-value">28 cm</span></div>
+          <div class="spec-item"><span class="spec-label">Feel</span><span class="spec-value">Medium-firm</span></div>
+          <div class="spec-item"><span class="spec-label">Coils</span><span class="spec-value">720</span></div>
+          <div class="spec-item"><span class="spec-label">Cover</span><span class="spec-value">PureWeave™</span></div>
+          <div class="spec-item"><span class="spec-label">Edge</span><span class="spec-value">HD Foam</span></div>
+          <div class="spec-item"><span class="spec-label">Warranty</span><span class="spec-value">10 years</span></div>
+        </div>
+        <ul class="construction-list">
+          <li>PureWeave™ four-way stretch knit cover woven with Tencel lyocell for natural breathability and moisture control</li>
+          <li>Gel-infused open-cell memory foam comfort layer with active cooling dispersion across the contact surface</li>
+          <li>720 individually encased coils in a single-zone Heavenly Coil System™, each pocket-sprung for independent movement and motion isolation</li>
+          <li>High-density foam-encased edge support providing a firm, stable perimeter and full use of the sleeping surface</li>
+          <li>Reinforced high-density base foam for long-term structural integrity across the ten-year warranty period</li>
+        </ul>
+        <p class="model-feel">The Essential sleeps medium-firm — supportive without rigidity, with enough surface give that your shoulder has somewhere to go, but enough resistance that your hips stay level through the night. Back and stomach sleepers find it particularly good company.</p>
+        <a href="#compare" class="link-arrow">See how it compares &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGNATURE -->
+<section id="signature" class="model-section" style="background:var(--sand);">
+  <div class="model-hero-strip">
+    <img src="https://images.unsplash.com/photo-1617325710236-4a36d46427a4?w=2400&q=80&auto=format&fit=crop" alt="Signature model">
+    <div class="model-hero-text">
+      <span class="eyebrow">Model 02</span>
+      <h2>Signature</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="model-body-grid reverse">
+      <div class="model-image-col">
+        <img src="https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=1200&q=80&auto=format&fit=crop" alt="Signature bedroom lifestyle">
+      </div>
+      <div class="model-text-col">
+        <span class="eyebrow">Our best-loved</span>
+        <h3 class="model-name">The Signature</h3>
+        <p class="model-intro">The Signature is the model most people arrive at when they think carefully about what they actually need. A medium feel that holds neither too firm nor too yielding. A three-zone lumbar system that quietly differentiates between your heaviest mass and your lighter extremities. A copper-infused PureWeave™ Cooling Cover that intervenes at the surface, before heat has any chance to become a conversation. At 32cm, it works with the full range of bed frames and is the natural choice for shared beds — the 920-coil Heavenly Coil System™ isolating movement with a sureness that makes a restless partner someone else's problem.</p>
+        <div class="specs-strip" style="--spec-bg:var(--sand);">
+          <div class="spec-item" style="background:var(--sand);"><span class="spec-label">Height</span><span class="spec-value">32 cm</span></div>
+          <div class="spec-item" style="background:var(--sand);"><span class="spec-label">Feel</span><span class="spec-value">Medium</span></div>
+          <div class="spec-item" style="background:var(--sand);"><span class="spec-label">Coils</span><span class="spec-value">920</span></div>
+          <div class="spec-item" style="background:var(--sand);"><span class="spec-label">Cover</span><span class="spec-value">PureWeave™ Cooling</span></div>
+          <div class="spec-item" style="background:var(--sand);"><span class="spec-label">Edge</span><span class="spec-value">Reinforced Foam</span></div>
+          <div class="spec-item" style="background:var(--sand);"><span class="spec-label">Warranty</span><span class="spec-value">12 years</span></div>
+        </div>
+        <ul class="construction-list">
+          <li>PureWeave™ Cooling Cover with copper-infused Tencel fibres — thermal regulation beginning at the first point of contact</li>
+          <li>Gel memory foam comfort layer paired with a Talalay latex contour layer for a responsive, pressure-relieving surface</li>
+          <li>920 individually encased coils in the Heavenly Coil System™ — three-zone ContourCore™ lumbar support with firmer coils in the central third</li>
+          <li>Talalay latex layer adding 25mm of natural, open-cell resilience above the coil system for dynamic contouring</li>
+          <li>Reinforced foam-encased edge support running the full perimeter for a stable, consistent sleeping surface right to the edge</li>
+          <li>High-density stabilising base foam maintaining structural integrity across a twelve-year warranty</li>
+        </ul>
+        <p class="model-feel">The Signature sleeps balanced — present enough to catch you, light enough not to hold you. Side sleepers find the shoulder relief they're looking for. Back sleepers find the lumbar acknowledgement the Essential doesn't offer. Partners find, often with some surprise, that they've stopped disturbing each other.</p>
+        <a href="#compare" class="link-arrow">See how it compares &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVE -->
+<section id="reserve" class="model-section">
+  <div class="model-hero-strip">
+    <img src="https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=2400&q=80&auto=format&fit=crop" alt="Reserve model">
+    <div class="model-hero-text">
+      <span class="eyebrow">Model 03</span>
+      <h2>Reserve</h2>
+    </div>
+  </div>
+  <div class="container">
+    <div class="model-body-grid">
+      <div class="model-image-col">
+        <img src="https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=1200&q=80&auto=format&fit=crop" alt="Reserve bedroom with plants">
+      </div>
+      <div class="model-text-col">
+        <span class="eyebrow">The pinnacle of the collection</span>
+        <h3 class="model-name">The Reserve</h3>
+        <p class="model-intro">The Reserve is built for those who want nothing withheld. It begins with a hand-tufted cashmere-blend quilted cover — each tuft placed by hand to hold the quilt layers in position and give the surface a softly sculptured character that simply looks considered. Beneath: Talalay latex, gel memory foam, and natural wool providing a depth of comfort that only multiple materials can achieve. The five-zone Heavenly Coil System™, at 1,180 individually encased coils with a micro-coil top layer, maps the human body at a resolution that a single zone cannot approximate. At 36cm, the Reserve has a presence. It changes the room.</p>
+        <div class="specs-strip">
+          <div class="spec-item"><span class="spec-label">Height</span><span class="spec-value">36 cm</span></div>
+          <div class="spec-item"><span class="spec-label">Feel</span><span class="spec-value">Plush, contouring</span></div>
+          <div class="spec-item"><span class="spec-label">Coils</span><span class="spec-value">1,180</span></div>
+          <div class="spec-item"><span class="spec-label">Cover</span><span class="spec-value">Hand-tufted, Tencel/silk</span></div>
+          <div class="spec-item"><span class="spec-label">Edge</span><span class="spec-value">Portrait Reinforced</span></div>
+          <div class="spec-item"><span class="spec-label">Warranty</span><span class="spec-value">15 years</span></div>
+        </div>
+        <ul class="construction-list">
+          <li>Hand-tufted 4-way stretch knit cover with Tencel and silk-blend quilting — cashmere-infused quilt layers hand-stitched at each tuft point</li>
+          <li>Natural wool comfort layer providing passive temperature regulation and a weight of softness that synthetic materials cannot match</li>
+          <li>Talalay latex contour layer and gel-infused memory foam in sequence — progressive, layered pressure relief</li>
+          <li>1,180 individually encased coils in a five-zone Heavenly Coil System™ with ContourCore™ micro-coil top layer for resolution contouring</li>
+          <li>Reinforced foam-encased portrait edge — the full depth of the mattress supported to the outer millimetre</li>
+          <li>Dual-tempered high-density base structure maintaining the Reserve's structural integrity across its fifteen-year warranty</li>
+        </ul>
+        <p class="model-feel">The Reserve sleeps plush with conviction — it gives to you, but it never loses track of where you are. The five-zone system ensures this softness is structural, not permissive. Hot sleepers find the Reserve's layered thermal management more effective than the simpler cooling approaches of the Essential and Signature. It is a considerable mattress, and it makes a considerable difference.</p>
+        <a href="#compare" class="link-arrow">See how it compares &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARE -->
+<section id="compare">
+  <div class="container">
+    <div class="compare-header">
+      <span class="eyebrow">Side by side</span>
+      <h2 class="section-title">Compare the Collection</h2>
+    </div>
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Essential</th>
+            <th>Signature</th>
+            <th>Reserve</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Height</td>
+            <td>28 cm</td>
+            <td>32 cm</td>
+            <td>36 cm</td>
+          </tr>
+          <tr>
+            <td>Coil System</td>
+            <td>720 individually encased coils, single-zone</td>
+            <td>920 individually encased coils, 3-zone ContourCore™ lumbar</td>
+            <td>1,180 individually encased coils, 5-zone with micro-coil top layer</td>
+          </tr>
+          <tr>
+            <td>Comfort Layers</td>
+            <td>Gel-infused memory foam</td>
+            <td>Gel memory foam + Talalay latex contour</td>
+            <td>Natural wool, Talalay latex, gel memory foam, cashmere-blend quilt</td>
+          </tr>
+          <tr>
+            <td>Cover</td>
+            <td>PureWeave™ stretch knit with Tencel</td>
+            <td>PureWeave™ Cooling Cover with copper-infused fibres</td>
+            <td>Hand-tufted 4-way stretch knit, Tencel &amp; silk-blend quilting</td>
+          </tr>
+          <tr>
+            <td>Edge Support</td>
+            <td>High-density foam encasement</td>
+            <td>Reinforced foam-encased edge</td>
+            <td>Reinforced foam-encased portrait edge</td>
+          </tr>
+          <tr>
+            <td>Feel</td>
+            <td>Medium-firm</td>
+            <td>Medium</td>
+            <td>Plush, contouring</td>
+          </tr>
+          <tr class="highlight">
+            <td>Ideal Sleeper</td>
+            <td>Back &amp; stomach sleepers, those who prefer firm support, solo sleepers</td>
+            <td>Mixed sleepers, couples, those with some lumbar considerations, hot sleepers</td>
+            <td>Side sleepers, those with joint or pressure point concerns, hot sleepers, luxury seekers</td>
+          </tr>
+          <tr>
+            <td>Warranty</td>
+            <td>10 years</td>
+            <td>12 years</td>
+            <td>15 years</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- BUYING GUIDE -->
+<section id="guide">
+  <div class="container">
+    <div class="guide-header">
+      <span class="eyebrow">The Heavenly Guide</span>
+      <h2 class="section-title">7 Steps to Buying the Best Mattress for You</h2>
+      <p style="max-width:580px;color:var(--muted);font-size:16px;line-height:1.75;">Buying a mattress well requires knowing what questions to ask. This guide will take you through the considerations that most people miss — and some that the industry would rather you didn't think about.</p>
+    </div>
+    <div class="guide-steps">
+      <div class="guide-step">
+        <div class="guide-numeral">01</div>
+        <div class="guide-step-text">
+          <h3>Understand how you sleep</h3>
+          <p>Sleep position is the single most determinative factor in mattress selection, and yet most people choose a mattress based on how it feels when they sit on the edge of the display model. Side sleepers need surface yield at the shoulder and hip — areas that, when compressed against a firm surface, generate the kind of persistent pressure point that wakes you without quite waking you. Back and stomach sleepers need the inverse: a surface that holds the spine in its natural curve without allowing the pelvis to sink.</p>
+          <p>Temperature and partnership matter too. If you regularly wake warm, the surface and internal materials need to work actively against heat accumulation — copper-infused fibres, open-cell latex, and gel foam all serve this purpose in different ways. If you share a bed, motion isolation — the degree to which one person's movement is felt by the other — becomes a real consideration, not a marketing phrase. Individually encased coil systems perform significantly better in this regard than continuous coil or open-spring systems.</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-numeral">02</div>
+        <div class="guide-step-text">
+          <h3>Know your body</h3>
+          <p>Weight distribution and pressure points are not the same thing, and most mattress descriptions conflate them. Heavier individuals place more load on the support core — a mattress with a lower coil count and less edge reinforcement will fatigue more quickly and develop uneven compression over time. But weight distribution is also about geometry: a side sleeper with broader hips relative to their shoulders needs more hip give than a side sleeper with a more linear silhouette.</p>
+          <p>Back and joint considerations should influence your choice significantly. If you wake with lower back stiffness, you almost certainly need more lumbar-specific support — which is what zoned coil systems provide. If you have hip or shoulder pain, you need a comfort layer (foam, latex, or quilt) thick and responsive enough to redistribute pressure away from those points. This is not a question of firmness preference; it is a question of structural requirement.</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-numeral">03</div>
+        <div class="guide-step-text">
+          <h3>Decode the materials</h3>
+          <p>Innerspring mattresses — continuous or open-coil — are low-cost, high-airflow, and short-lived. They transmit movement readily and provide little surface contouring. Foam mattresses (memory foam, polyfoam) offer pressure relief and motion isolation but can trap heat and, in lower-density variants, compress unevenly over time. Latex, whether Talalay or Dunlop processed, offers a springier, cooler alternative with natural antimicrobial properties and exceptional durability.</p>
+          <p>Hybrids — which combine an encased coil support core with foam, latex, or natural fibre comfort layers — represent the current standard for premium mattresses because they allow each material to do what it does best: coils provide support, airflow, and edge strength; foam and latex provide contouring and pressure relief; natural fibres regulate temperature and add a quality of softness that synthetic materials cannot approximate. The Heavenly Collection is built on this architecture throughout.</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-numeral">04</div>
+        <div class="guide-step-text">
+          <h3>Look past coil counts</h3>
+          <p>Coil count matters — to a point. More coils, in a given area, generally means finer-grained response to weight distribution. But coil count figures are also routinely inflated by manufacturers using smaller-gauge coils that contribute less structural support. The more meaningful question is whether the coil system is individually encased (pocketed), and whether it is zoned.</p>
+          <p>Individually encased coils respond independently to the weight directly above them, rather than as a connected system that transmits force laterally. Zoning means different sections of the coil system are calibrated to different loads — firmer beneath the lumbar region, where most body weight concentrates in a back sleeper, and more yielding beneath the shoulders and legs. The Signature's three-zone ContourCore™ system delivers this differentiation; the Reserve's five-zone system does so at greater resolution.</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-numeral">05</div>
+        <div class="guide-step-text">
+          <h3>Cooling and breathability</h3>
+          <p>Body temperature drops naturally during sleep onset, and a mattress surface that works against this — retaining heat at the contact layer — disturbs the physiological process without the sleeper ever knowing why. Copper-infused surface fibres conduct heat away from the skin at the point of contact. Gel memory foam disperses heat through the foam matrix rather than accumulating it. Open-cell latex, by its cellular structure, allows air to move through the material rather than trapping warmth within it.</p>
+          <p>The airflow properties of an encased coil system are also significant — the coil chamber below the comfort layers acts as a passive ventilation channel that continuous foam cores cannot replicate. If you sleep hot, look for a combination of these factors rather than any single one: cover technology, gel comfort layers, open-cell foam or latex, and a coil system that allows warm air to move out of the mattress rather than cycling back through it.</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-numeral">06</div>
+        <div class="guide-step-text">
+          <h3>Edge support, motion isolation, and longevity</h3>
+          <p>Edge support is the difference between a mattress you can use to its full width and one that effectively has a six-inch perimeter of unusable soft territory. Foam-encased edges — a perimeter wall of high-density foam surrounding the coil system — hold their shape under load and allow you to sit on the edge of the bed without it yielding dramatically. Portrait-encased edges, as in the Reserve, provide this support across the full profile depth of the mattress.</p>
+          <p>Motion isolation is the degree to which movement on one side of the bed is felt on the other. Individually encased coil systems consistently outperform open-spring and continuous coil systems in this regard, as each coil's response is contained. Longevity is partly a materials question (latex outlasts foam; higher-density foam outlasts lower-density foam) and partly a warranty question — a meaningful warranty is not a marketing gesture, it is a signal of a manufacturer's confidence in their construction tolerances.</p>
+        </div>
+      </div>
+      <div class="guide-step">
+        <div class="guide-numeral">07</div>
+        <div class="guide-step-text">
+          <h3>Trial periods, warranties, and testing in store</h3>
+          <p>A mattress reveals itself slowly. The first night tells you about obvious comfort; the first week tells you about pressure points; the first month tells you whether the surface is beginning to hold the shape of your body in the way it should, and whether the support core is holding its geometry. Any meaningful trial period should be at least 60 nights, and ideally 100. Be cautious of short trial periods — they are structured so the mattress hasn't yet had time to demonstrate its limitations.</p>
+          <p>When testing in store, lie in your actual sleep position — not on your back for thirty seconds. Spend five to ten minutes in position, in quiet, ideally with your partner doing the same beside you. Notice whether your spine feels level, whether your shoulder has sunk to a comfortable depth, whether you feel heat building at the contact surface. A mattress that feels good at rest will feel even better after a decade of use, if it was built to last. One that feels only adequate in the showroom will feel less so a year from now.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RITUALS -->
+<section id="rituals">
+  <div class="container">
+    <div class="rituals-header">
+      <span class="eyebrow">How we sleep</span>
+      <h2 class="section-title">Rituals for a Better Night</h2>
+      <p style="max-width:560px;color:var(--muted);font-size:16px;line-height:1.75;">The bed is only part of the picture. These are the practices that frame it — small acts of intention that compound, quietly, into the quality of your days.</p>
+    </div>
+    <div class="rituals-grid">
+      <div class="ritual-card">
+        <span class="ritual-icon">◷</span>
+        <h4>The consistent hour</h4>
+        <p>Your circadian rhythm is not a preference; it is a biological system that operates on pattern. Going to bed and rising at the same time each day — including weekends — anchors this system more effectively than any other single intervention. Within a fortnight, most people find they no longer need an alarm. Within a month, they notice the difference in the quality of the sleep they were getting before.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">◑</span>
+        <h4>Light, managed</h4>
+        <p>Bright overhead lighting in the hour before bed suppresses melatonin release with surprising efficiency. Shift to warm, low, indirect sources — a lamp rather than an overheard light, candlelight where the mood allows. Your body reads light temperature and intensity as a signal about the time of day. Give it a signal that says evening, and it will respond accordingly.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">❄</span>
+        <h4>The 16–19°C room</h4>
+        <p>Core body temperature drops by approximately one degree Celsius during sleep onset. A room between 16 and 19 degrees Celsius facilitates this drop; a warmer room slows it. If a cooler room is not possible, lightweight natural fibre bedding — linen, cotton percale, or Tencel — draws moisture and heat from the body rather than insulating it back. Your mattress cover does some of this work, but the ambient environment does more.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">☕</span>
+        <h4>The cut-off point</h4>
+        <p>Caffeine has a half-life of approximately five to six hours in most adults. A coffee at three in the afternoon is a quarter-strength coffee at eleven at night — present, and disrupting. The same applies to alcohol, which induces drowsiness but fragments the second half of the sleep cycle with a consistency that most regular drinkers have simply normalised. Neither of these facts requires you to change your life. They are worth knowing.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">✦</span>
+        <h4>The writing habit</h4>
+        <p>Intrusive thought at bedtime — the inventory of tomorrow's tasks, the replaying of today's conversation — is partially a function of the mind having no other container for these items. A brief writing practice at the end of the day gives them one. This doesn't need to be journalling in any meaningful sense: a list of what is unresolved, what was accomplished, and what tomorrow holds is often enough to release the mind's grip on it.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">◻</span>
+        <h4>The quiet bedroom</h4>
+        <p>The bedroom as a dedicated sleep environment — free of work materials, screens, and accumulative clutter — trains the brain to associate the space with rest rather than stimulation. This is less about minimalism as an aesthetic and more about signal clarity. The fewer competing associations a room holds, the more reliably it delivers the one you actually want from it. A made bed in a calm room is a permission to rest.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">◈</span>
+        <h4>Weight and natural fibre</h4>
+        <p>Weighted blankets — typically six to ten kilograms, or approximately ten percent of body weight — have reasonable evidence behind them for reducing sleep onset time and increasing subjective sleep quality. Pairing a weighted layer with natural fibres (linen, cotton, Tencel) that breathe rather than trap heat addresses the primary reason people find them too warm. The weight grounds the nervous system; the fibre keeps the surface from becoming a problem.</p>
+      </div>
+      <div class="ritual-card">
+        <span class="ritual-icon">☀</span>
+        <h4>Morning light, first</h4>
+        <p>Ten to fifteen minutes of natural light exposure within the first hour of waking — ideally outside, or near a window — sets the body's circadian anchor for the day and, by extension, for the following night. It is the most reliable single intervention for improving sleep timing across populations, and the cheapest. It is also among the most consistently skipped. The quality of tonight's sleep begins with this morning's light.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="container">
+    <div class="quiz-header">
+      <span class="eyebrow">The Selector</span>
+      <h2 class="section-title">Find Your Heavenly Bed</h2>
+      <p style="max-width:480px;margin:0 auto;color:var(--muted);font-size:16px;line-height:1.75;">Seven questions. An honest recommendation. No sales pressure — just the model that suits you.</p>
+    </div>
+  </div>
+  <div class="quiz-inner" id="quiz-container">
+    <!-- Rendered by JS -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#hero" class="nav-wordmark">Heavenly</a>
+        <p>We make mattresses that are built with care, from materials that earn their place, for people who believe the quality of a day begins the night before.</p>
+      </div>
+      <div class="footer-col">
+        <h5>The Collection</h5>
+        <ul>
+          <li><a href="#essential">Essential</a></li>
+          <li><a href="#signature">Signature</a></li>
+          <li><a href="#reserve">Reserve</a></li>
+          <li><a href="#compare">Compare Models</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Discover</h5>
+        <ul>
+          <li><a href="#anatomy">How We Build It</a></li>
+          <li><a href="#guide">Buying Guide</a></li>
+          <li><a href="#rituals">Sleep Rituals</a></li>
+          <li><a href="#quiz">Find Your Bed</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>About</h5>
+        <ul>
+          <li><a href="#brand">Our Philosophy</a></li>
+          <li><a href="#why">Why Heavenly</a></li>
+          <li><a href="#brand">Materials</a></li>
+          <li><a href="#guide">Warranty &amp; Trial</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 The Heavenly Bed Collection. All rights reserved. PureWeave™, ContourCore™, and Heavenly Coil System™ are registered trademarks. This is a demonstration site — no products are available for purchase.</p>
+      <p>A fictional brand created for demonstration purposes.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // NAV SCROLL BEHAVIOR
+  (function() {
+    var nav = document.getElementById('main-nav');
+    window.addEventListener('scroll', function() {
+      if (window.scrollY > 60) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    }, { passive: true });
+  })();
+
+  // QUIZ
+  (function() {
+    var questions = [
+      {
+        q: "How do you usually sleep?",
+        answers: ["Side", "Back", "Stomach", "A bit of everything"]
+      },
+      {
+        q: "Do you share your bed?",
+        answers: ["Just me", "With a partner", "With a partner and occasionally others", "It varies"]
+      },
+      {
+        q: "How would you describe your build?",
+        answers: ["Petite", "Average", "Larger", "Prefer not to say"]
+      },
+      {
+        q: "Do you tend to sleep hot or cool?",
+        answers: ["Always hot", "Sometimes warm", "Neutral", "I run cold"]
+      },
+      {
+        q: "Any back, hip, or joint considerations?",
+        answers: ["Yes, significant", "Some occasional discomfort", "None", "Not sure"]
+      },
+      {
+        q: "What feel do you naturally reach for?",
+        answers: ["Plush and cradling", "Balanced — not too soft, not too firm", "Firm and supportive", "Not sure yet"]
+      },
+      {
+        q: "How long since your last new mattress?",
+        answers: ["Under 5 years", "5–8 years", "Over 8 years", "Can't remember"]
+      }
+    ];
+
+    var answers = [];
+    var currentQ = 0;
+    var container = document.getElementById('quiz-container');
+
+    function score() {
+      var e = 0, s = 0, r = 0;
+
+      // Q1: sleep position
+      if (answers[0] === "Side") r += 2;
+      else if (answers[0] === "Back") e += 2;
+      else if (answers[0] === "Stomach") e += 2;
+      else { s += 2; }
+
+      // Q2: sharing
+      if (answers[1] === "Just me") e += 1;
+      else if (answers[1] === "With a partner") s += 2;
+      else { s += 1; r += 1; }
+
+      // Q3: build
+      if (answers[2] === "Petite") r += 1;
+      else if (answers[2] === "Average") s += 1;
+      else if (answers[2] === "Larger") { e += 1; s += 1; }
+      else s += 1;
+
+      // Q4: temperature
+      if (answers[3] === "Always hot") r += 2;
+      else if (answers[3] === "Sometimes warm") s += 2;
+      else if (answers[3] === "Neutral") s += 1;
+      else e += 1;
+
+      // Q5: joint considerations
+      if (answers[4] === "Yes, significant") r += 3;
+      else if (answers[4] === "Some occasional discomfort") { s += 2; r += 1; }
+      else if (answers[4] === "None") e += 1;
+      else s += 1;
+
+      // Q6: feel preference
+      if (answers[5] === "Plush and cradling") r += 3;
+      else if (answers[5] === "Balanced — not too soft, not too firm") s += 3;
+      else if (answers[5] === "Firm and supportive") e += 3;
+      else s += 1;
+
+      // Q7: last mattress (longer = more need for upgrade)
+      if (answers[6] === "Over 8 years") { r += 1; }
+      else if (answers[6] === "Can't remember") { r += 1; }
+
+      // Determine winner, ties go to Signature
+      if (r > s && r > e) return 'reserve';
+      if (e > s && e > r) return 'essential';
+      return 'signature';
+    }
+
+    function resultData(model) {
+      var why = buildWhy(model);
+      var data = {
+        essential: {
+          label: 'The Essential',
+          img: 'https://images.unsplash.com/photo-1591088398332-8a7791972843?w=1200&q=80&auto=format&fit=crop',
+          href: '#essential',
+          why: why
+        },
+        signature: {
+          label: 'The Signature',
+          img: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=80&auto=format&fit=crop',
+          href: '#signature',
+          why: why
+        },
+        reserve: {
+          label: 'The Reserve',
+          img: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=80&auto=format&fit=crop',
+          href: '#reserve',
+          why: why
+        }
+      };
+      return data[model];
+    }
+
+    function buildWhy(model) {
+      var pos = answers[0] || '';
+      var temp = answers[3] || '';
+      var joint = answers[4] || '';
+      var feel = answers[5] || '';
+
+      if (model === 'reserve') {
+        var reasons = [];
+        if (pos === 'Side') reasons.push('your preference for sleeping on your side');
+        if (temp === 'Always hot' || temp === 'Sometimes warm') reasons.push('your tendency to sleep warm');
+        if (joint === 'Yes, significant' || joint === 'Some occasional discomfort') reasons.push('the joint and pressure point considerations you mentioned');
+        if (feel === 'Plush and cradling') reasons.push('your preference for a plush, cradling feel');
+        if (reasons.length === 0) reasons.push('the combination of your sleep needs');
+        return 'The Reserve suits you because of ' + reasons.join(', ') + '. Its five-zone ContourCore™ system and layered natural comfort materials are built precisely for this profile — a mattress that holds you without confining you, and keeps you comfortable through the night.';
+      }
+      if (model === 'essential') {
+        return 'The Essential suits you well. ' + (pos === 'Back' || pos === 'Stomach' ? 'Back and stomach sleepers benefit particularly from its medium-firm support — it holds the spine in its natural alignment without the yielding surface that side sleepers need. ' : '') + (feel === 'Firm and supportive' ? 'Your preference for firmer support is exactly what this mattress delivers with uncompromising clarity. ' : '') + 'Straightforward, durable, and built to last — without a layer of anything you don\'t need.';
+      }
+      // signature
+      return 'The Signature is our most universally suited model, and it fits your profile particularly well. ' + (answers[1] === 'With a partner' ? 'Its 920-coil independently encased system provides the motion isolation a shared bed benefits from. ' : '') + (temp === 'Sometimes warm' ? 'The copper-infused PureWeave™ Cooling Cover addresses your warmth without overcorrecting. ' : '') + 'The three-zone ContourCore™ lumbar system and balanced medium feel make it the considered middle ground between all the things that matter.';
+    }
+
+    function renderQuestion() {
+      var q = questions[currentQ];
+      var dotsHTML = questions.map(function(_, i) {
+        var cls = i < currentQ ? 'quiz-dot done' : (i === currentQ ? 'quiz-dot active' : 'quiz-dot');
+        return '<span class="' + cls + '"></span>';
+      }).join('');
+
+      var answersHTML = q.answers.map(function(a) {
+        return '<button class="quiz-answer-btn" onclick="window._quizAnswer(\'' + a.replace(/'/g, "\\'") + '\')">' + a + '</button>';
+      }).join('');
+
+      container.innerHTML = '<div class="quiz-pane" id="quiz-pane">' +
+        '<div class="quiz-progress">' +
+          '<span class="quiz-progress-label">Question ' + (currentQ + 1) + ' of ' + questions.length + '</span>' +
+          '<div class="quiz-dots">' + dotsHTML + '</div>' +
+        '</div>' +
+        '<p class="quiz-question">' + q.q + '</p>' +
+        '<div class="quiz-answers">' + answersHTML + '</div>' +
+      '</div>';
+    }
+
+    function renderResult() {
+      var model = score();
+      var d = resultData(model);
+      var dotsHTML = questions.map(function() {
+        return '<span class="quiz-dot done"></span>';
+      }).join('');
+
+      container.innerHTML = '<div class="quiz-pane quiz-result" id="quiz-pane">' +
+        '<div class="quiz-progress" style="justify-content:center;">' +
+          '<div class="quiz-dots">' + dotsHTML + '</div>' +
+        '</div>' +
+        '<span class="quiz-result-label">We recommend</span>' +
+        '<div class="quiz-result-model">' + d.label + '</div>' +
+        '<img class="quiz-result-img" src="' + d.img + '" alt="' + d.label + '">' +
+        '<p class="quiz-result-why">' + d.why + '</p>' +
+        '<div class="quiz-result-actions">' +
+          '<a href="' + d.href + '" class="btn-green">Explore ' + d.label + '</a>' +
+          '<a href="#compare" class="btn-clay">See how it compares</a>' +
+        '</div>' +
+        '<button class="quiz-retake" onclick="window._quizRetake()">Retake the quiz</button>' +
+      '</div>';
+    }
+
+    window._quizAnswer = function(answer) {
+      var pane = document.getElementById('quiz-pane');
+      pane.classList.add('fade-out');
+      setTimeout(function() {
+        answers[currentQ] = answer;
+        currentQ++;
+        if (currentQ >= questions.length) {
+          renderResult();
+        } else {
+          renderQuestion();
+        }
+        var newPane = document.getElementById('quiz-pane');
+        if (newPane) {
+          newPane.style.opacity = '0';
+          setTimeout(function() { newPane.style.opacity = '1'; newPane.style.transition = 'opacity 0.3s ease'; }, 20);
+        }
+      }, 200);
+    };
+
+    window._quizRetake = function() {
+      answers = [];
+      currentQ = 0;
+      renderQuestion();
+    };
+
+    renderQuestion();
+  })();
+</script>
+</body>
+</html>
